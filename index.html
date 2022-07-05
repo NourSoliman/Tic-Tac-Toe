@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic-Tac-toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="game-title">Tic Tac Toe</p>
+    <div class="users">
+        <div>
+
+            <div id="p1-name-div">Player 1 Name:
+                <input type="text" id="p1-name-input" value="" required > 
+                <span id="html1" ></span>
+                </div id="p1-name-div">
+            <div id="p2-name-div">Player 2 Name:<input type="text" id="p2-name-input" required   value=""  > <span id="html2"></span></div id="p2-name-div">
+                <button id="button" type="submit" > Submit </button>
+            </div>
+
+
+        <div>
+    </div>
+    </div>
+    <div class="container">
+    <div id="select-mark">
+        <span>Select Your Mark!  </span><select id="select">
+            <option selected>....</option>
+            <option id="X1" value="1" >X</option>
+            <option id="O1" value="2">O</option>
+        </select>
+    </div>
+    <div id="winner">
+        The Winner:
+    </div>
+    <div id="restart">
+        <button>Restart game!</button>
+    </div>
+</div>
+</div>
+    <div id="game-board">
+        <table>
+
+                <td class="cell" id="item1" data-cell onclick="game(this.id)"></td>
+                <td class="cell" id="item2" data-cell onclick="game(this.id)"></td>
+                <td class="cell" id="item3" data-cell onclick="game(this.id)"></td>
+
+                <td class="cell" id="item4" data-cell onclick="game(this.id)"></td>
+                <td class="cell" id="item5" data-cell onclick="game(this.id)"></td>
+                <td class="cell" id="item6" data-cell onclick="game(this.id)"></td>
+
+                <td class="cell" id="item7" data-cell onclick="game(this.id)"></td>
+                <td class="cell" id="item8" data-cell onclick="game(this.id)"></td>
+                <td class="cell" id="item9" data-cell onclick="game(this.id)"></td>
+            </tr>
+        </table>
+    </div>
+<script src="app.js"></script>
+</body>
+</html>
