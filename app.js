@@ -1,33 +1,59 @@
+// let marker
 let marker
 let gameBoard = [];
 let restartBu = document.getElementById(`restart`)
 let winnerDec = document.getElementById(`winner`)
 let selectMark = document.getElementById(`select`)
-let firstNameInput = document.getElementById(`p1-name-input`);
-let secNameInput = document.getElementById(`p2-name-input`);
-let firstPlayer = document.getElementById(`p1-name-div`)
-let secPlayer = document.getElementById(`p2-name-div`)
+let cells = document.querySelectorAll(`.cell`)
 let button = document.getElementById(`button`)
-button.addEventListener(`click` , startGame)
+let first = document.querySelector(`.first`)
+let second = document.querySelector(`.second`)
+let firstName= document.querySelector(`.name-one`)
+let secName= document.querySelector(`.name-two`)
+let inputs = document.querySelectorAll(`.name-one , .name-two`)
+let start = document.querySelector(`.start`)
+let submit = document.querySelector(`.submit`)
+let submitbu = document.querySelector(`.submit`)
+let form = document.querySelector(`.names`)
+let hide = document.querySelector(`.hide`)
 let gameOver = false;
-selectMark.addEventListener(`click`, mark)
+start.addEventListener(`click` , startGame)
 restartBu.addEventListener(`click`, restartGame)
-
-function startGame() {
-    firstPlayer.innerHTML = `First-Player ${firstNameInput.value}`;
-    secPlayer.innerHTML = ` 2nd-Player  ${secNameInput.value}`;
+form.addEventListener(`submit`, names)
+selectMark.style.display = `none`
+restartBu.style.display = `none`
+winnerDec.style.display = `none`
+start.style.display = `none`
+hide.style.display = `none`
+// function to handle name inputs
+function names(e) {
+    e.preventDefault()
+    let one = first.value
+    let two = second.value
+    firstName.innerHTML = `First Player Name:  ${one}`
+    secName.innerHTML = `Second Player Name:  ${two}`
+    first.style.display = `none`
+    second.style.display = `none`
+    submit.style.display = `none`
+    firstName.style.display = `block`
+    secName.style.display = `block`
+    form.reset()
+    start.style.display = `block`
 }
+//function to declare the winner
 function theEnd(num1, num2, num3) {
-    winnerDec.innerHTML = `the winner is ${gameBoard[num1]}`
+    // winnerDec.style.display = `block`
+    winnerDec.style.display = `flex`
+    winnerDec.innerHTML = `The Winner Is ${gameBoard[num1].toUpperCase()}`
     document.getElementById(`item` + num1).style.background = `#E879F9`
     document.getElementById(`item` + num2).style.background = `#9333EA`
     document.getElementById(`item` + num3).style.background = `#7C3AED`
     gameOver = true;
+    restartBu.style.display = `flex`
     return
 }
-// market function
+// marker function
 function game(id) {
-
     let cell = document.getElementById(id)
     if (marker === `x` && cell.innerHTML == `` && gameOver == false) {
         cell.innerHTML = `X`
@@ -35,10 +61,8 @@ function game(id) {
     } else if (marker === `o` && cell.innerHTML == `` && gameOver == false) {
         cell.innerHTML = `o`
         marker = `x`
-    }
-
+    } 
     winner();
-
 }
 // winner function
 function winner() {    
@@ -72,28 +96,42 @@ function winner() {
     }
     
 }
-
-
 function restartGame() {
-    
     const cells = (document.querySelectorAll(".cell"));
     for (let i = 0 ; i < 9; i++) {
         cells[i].innerHTML = ""
+        cells[i].style.background = `gainsboro`
     }
     gameBoard = [];
     gameOver = false;
-    firstPlayer.innerHTML = "";
-    secPlayer.innerHTML = "";
-    button.style.display = `none`
-
-
+    console.log(`restarted`);
+    restartBu.style.display = `none`
+    winnerDec.textContent = ``
+    first.style.display = `block`
+    second.style.display = `block`
+    submit.style.display = `block`
+    selectMark.value == `0`;
+    firstName.style.display = `none`
+    secName.style.display = `none`
+    start.style.display = `none`
+    selectMark.style.display = `none`
+    hide.style.display = `none`
 }
-function mark() {
-
+function switchMark() {
     if (selectMark.value == `1`) {
         marker = `x`
-    } else {
+    } 
+    else {
         marker = `o`
     }
+}
 
+function startGame() {
+    let selectMark = document.getElementById(`select`)
+    start.style.display = `none`
+    winnerDec.style.display = `none`
+    selectMark.style.display =`block`
+    hide.style.display = `flex`
+    selectMark.addEventListener(`click`, switchMark)
+    selectMark.addEventListener(`click`, switchMark)
 }

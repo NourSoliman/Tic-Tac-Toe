@@ -8,41 +8,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p id="game-title">Tic Tac Toe</p>
-    <div class="users">
-        <div>
-
-            <div id="p1-name-div">Player 1 Name:
-                <input type="text" id="p1-name-input" value="" required > 
-                <span id="html1" ></span>
-                </div id="p1-name-div">
-            <div id="p2-name-div">Player 2 Name:<input type="text" id="p2-name-input" required   value=""  > <span id="html2"></span></div id="p2-name-div">
-                <button id="button" type="submit" > Submit </button>
-            </div>
-
-
-        <div>
-    </div>
-    </div>
+    <div class="nav">
+    <h1 id="game-title"><span style="color:#E879F9;">Tic-</span>
+    <span style="color:#9333EA;">Tac-</span> 
+    <span style="color:#7C3AED;">Toe </span></h1>
+    <img src="./images/logo3.png" class="logo"/>
+</div>
     <div class="container">
+            <form class="names">
+            <input type="text" placeholder="First Player Name..." class="first"  maxlength="10" required/>
+            <input type="text" placeholder="Second Player Name..." class="second"  maxlength="10" required/>
+            <button type="submit"  class="submit">Submit</button>
+        </form>
+        <div class="player-info">
+            <p class="name-one"></p>
+            <p class="name-two"></p>
+        </div>
+        <div>       
+            <button type="button" class="start">Start Game!</button>
+        </div>
+
     <div id="select-mark">
-        <span>Select Your Mark!  </span><select id="select">
-            <option selected>....</option>
+        <span class="hide">Select Your Mark!</span>
+        <select id="select">
+            <option selected value="0" >Select!</option>
             <option id="X1" value="1" >X</option>
             <option id="O1" value="2">O</option>
         </select>
     </div>
     <div id="winner">
-        The Winner:
+        The Winner Is:
     </div>
     <div id="restart">
-        <button>Restart game!</button>
+        <button class="restart">Restart game!</button>
     </div>
 </div>
 </div>
     <div id="game-board">
         <table>
-
                 <td class="cell" id="item1" data-cell onclick="game(this.id)"></td>
                 <td class="cell" id="item2" data-cell onclick="game(this.id)"></td>
                 <td class="cell" id="item3" data-cell onclick="game(this.id)"></td>
