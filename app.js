@@ -93,6 +93,9 @@ function winner() {
     } else if (gameBoard[3] == gameBoard[5] && gameBoard[5] == gameBoard[7] && gameBoard[3] != ``) {
         theEnd(3, 5, 7)
 
+    } else if(gameBoard[1] && gameBoard[2] && gameBoard[3] && gameBoard[4] && gameBoard[5] && gameBoard[6] && gameBoard[7] && gameBoard[8] && gameBoard[9] !== ``){
+        restartBu.style.display = `flex`
+        winnerDec.innerHTML = `Its Draw!`
     }
     
 }
